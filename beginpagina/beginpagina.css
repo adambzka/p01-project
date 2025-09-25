@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(76, 76, 241);
+}
+
+body h1 {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    
+}
+
+body button {
+    margin-left: 900px; /* Verschuift de button 50px naar rechts */
+    margin-top: 500px;  /* Verschuift de button 20px naar beneden */
+    background-color: #4ca3af;  /* groene achtergrond */
+  color: white;               /* witte tekst */
+  padding: 10px 20px;         /* ruimte binnen de knop */
+  border: none;               /* geen rand */
+  border-radius: 5px;         /* afgeronde hoeken */
+  cursor: pointer;            /* handje als je er overheen gaat */
+  font-size: 16px;            /* tekstgrootte */
+    
+}
