@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz</title>
+  <title>Nasser's Quiz</title>
   <link rel="stylesheet" href="nasr.css">
 </head>
 <body>
-    
- <div class="div1">
-<h1 class="titel">Quiz</h1>
- </div>
- <div class="div2">
-  vraag
- </div>
- <div class="div3">
-    <button>Knop 1</button>
-    <button>Knop 2</button>
-    <button>Knop 3</button>
-    <button>Knop 4</button>
- </div>
+  <div class="container">
+    <h1>Nasser's Quiz</h1>
+    <form id="quiz-form">
+      <div class="quiz-question">
+        <p><strong>Vraag 1:</strong> Hoe oud is Ronaldo?</p>
+        <input type="number" id="ronaldo-age" name="ronaldo-age" placeholder="Vul het juiste getal in" required>
+      </div>
+      <button type="submit" class="quiz-button" style="margin-top: 30px;">Controleer antwoord</button>
+    </form>
+    <div id="feedback" style="margin-top: 18px;"></div>
+    <a href="frontpage/frontpage.html" class="quiz-button" style="margin-top: 32px; background: #222; font-size: 1rem;">Terug naar selectie</a>
+  </div>
+  <script src="nasr.js"></script>
 </body>
 </html>

@@ -1,0 +1,118 @@
+/* === Algemene reset en basisstijl === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #03045e, #0077b6);
+  color: #ffffff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Container voor inhoud === */
+.container {
+  text-align: center;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+}
+
+/* === Titel === */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* === Vraag-stijl === */
+.quiz-question {
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+}
+
+.quiz-question input[type="number"] {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  width: 80%;
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  outline: none;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.quiz-question input[type="number"]:focus {
+  background: rgba(255,255,255,0.35);
+}
+
+/* === Stijl van de knoppen === */
+.quiz-button {
+  padding: 16px 36px;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 999px; /* Maakt de knoppen volledig rond */
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* === Hover-effect voor knoppen === */
+.quiz-button:hover {
+  background: linear-gradient(135deg, #90e0ef, #00b4d8);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Feedback-stijl */
+#feedback {
+  font-size: 1.1rem;
+  min-height: 24px;
+  margin-bottom: 10px;
+}
+
+/* Terug-knop extra styling */
+a.quiz-button {
+  margin-top: 24px;
+  font-size: 1rem;
+  background: #222;
+  background: linear-gradient(135deg, #343a40 60%, #00b4d8 100%);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.11);
+  transition: background 0.2s;
+}
+a.quiz-button:hover {
+  background: linear-gradient(135deg, #495057 60%, #90e0ef 100%);
+}
+
+@media (max-width: 500px) {
+  .container {
+      padding: 18px;
+  }
+  h1 {
+      font-size: 1.5rem;
+  }
+  .quiz-button {
+      font-size: 1rem;
+      padding: 12px 20px;
+  }
+  .quiz-question input[type="number"] {
+      font-size: 0.95rem;
+  }
+}
