@@ -1,61 +1,31 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <title>Quiz Startpagina</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-    }
-    .container {
-      max-width: 400px;
-      margin: 60px auto;
-      background: #fff;
-      padding: 32px 24px;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      text-align: center;
-    }
-    input[type="text"] {
-      width: 80%;
-      padding: 8px;
-      margin: 16px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-    button {
-      padding: 10px 28px;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    button:disabled {
-      background: #aaa;
-      cursor: not-allowed;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz eten</title>
+  <link rel="stylesheet" href="adam.css">
+  <script src="adam.js"></script>
+
+  <!-- ✅ Styling -->
+  
 </head>
+
 <body>
   <div class="container">
-    <h2>Welkom bij de Quiz!</h2>
-    <label for="nameInput">Vul je naam in:</label><br>
-    <input type="text" id="nameInput" placeholder="Je naam..." />
-    <br>
-    <button id="startBtn" disabled>Start de quiz</button>
+    <h1>Welkom, vul je naam in om de Quiz te starten</h1>
+    <form id="startForm">
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Jouw naam"
+        class="input-field"
+        required
+      />
+      <button type="submit" class="quiz-button">Start de Quiz</button>
+    </form>
   </div>
-  <script>
-    const nameInput = document.getElementById('nameInput');
-    const startBtn = document.getElementById('startBtn');
-    nameInput.addEventListener('input', function() {
-      startBtn.disabled = nameInput.value.trim() === "";
-    });
-    
-  </script>
 </body>
 </html>
+
