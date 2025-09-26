@@ -1,61 +1,128 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <title>Quiz Startpagina</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz eten</title>
+
+  <!-- ✅ Styling -->
   <style>
+    /* === Algemene reset en basisstijl === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #03045e, #0077b6);
+      color: #ffffff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
+    /* === Container === */
     .container {
-      max-width: 400px;
-      margin: 60px auto;
-      background: #fff;
-      padding: 32px 24px;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
       text-align: center;
+      padding: 50px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 90%;
     }
-    input[type="text"] {
-      width: 80%;
-      padding: 8px;
-      margin: 16px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
+
+    /* === Titel === */
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
     }
-    button {
-      padding: 10px 28px;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
+
+    /* === Inputveld stijl === */
+    .input-field {
+      padding: 16px 20px;
       font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.2s;
+      border: none;
+      border-radius: 999px;
+      width: 100%;
+      background: linear-gradient(135deg, #caf0f8, #90e0ef);
+      color: #03045e;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      outline: none;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
     }
-    button:disabled {
-      background: #aaa;
-      cursor: not-allowed;
+
+    .input-field::placeholder {
+      color: #0077b6;
+      opacity: 0.8;
+    }
+
+    .input-field:focus {
+      background: linear-gradient(135deg, #ade8f4, #48cae4);
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* === Start knop stijl === */
+    .quiz-button {
+      padding: 16px 36px;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 999px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .quiz-button:hover {
+      background: linear-gradient(135deg, #90e0ef, #00b4d8);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h2>Welkom bij de Quiz!</h2>
-    <label for="nameInput">Vul je naam in:</label><br>
-    <input type="text" id="nameInput" placeholder="Je naam..." />
-    <br>
-    <button id="startBtn" disabled>Start de quiz</button>
+    <h1>Welkom, vul je naam in om de Quiz te starten</h1>
+    <form id="startForm">
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Jouw naam"
+        class="input-field"
+        required
+      />
+      <button type="submit" class="quiz-button">Start de Quiz</button>
+    </form>
   </div>
+
+  <!-- ✅ JavaScript -->
   <script>
-    const nameInput = document.getElementById('nameInput');
-    const startBtn = document.getElementById('startBtn');
-    nameInput.addEventListener('input', function() {
-      startBtn.disabled = nameInput.value.trim() === "";
+    document.getElementById("startForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("username").value.trim();
+
+      if (name) {
+        // Opslaan in localStorage
+        localStorage.setItem("quizUserName", name);
+
+        // Redirect naar quizpagina (pas aan naar de juiste quiz)
+        window.location.href = "quiz-nasser.html";
+      } else {
+        alert("Vul alsjeblieft je naam in.");
+      }
     });
-    
   </script>
 </body>
 </html>
+
