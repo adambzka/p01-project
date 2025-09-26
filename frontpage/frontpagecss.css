@@ -1,0 +1,62 @@
+/* === Algemene reset en basisstijl === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #03045e, #0077b6);
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* === Container voor inhoud === */
+  .container {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  /* === Titel === */
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  /* === Knoppenlijst === */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* === Stijl van de knoppen === */
+  .quiz-button {
+    padding: 16px 36px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 999px; /* Maakt de knoppen volledig rond */
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+  /* === Hover-effect voor knoppen === */
+  .quiz-button:hover {
+    background: linear-gradient(135deg, #90e0ef, #00b4d8);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
