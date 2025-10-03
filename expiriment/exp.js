@@ -1,9 +1,35 @@
-// quiz.js
+// script.js
 
-// Variabelen voor de vragen en antwoorden
+// Startpagina - Naam invullen en naar quiz gaan
+document.addEventListener("DOMContentLoaded", function() {
+    const naamInput = document.getElementById("naam");
+    const startBtn = document.getElementById("start-btn");
+
+    // Eventlistener voor het invullen van de naam
+    naamInput.addEventListener("input", function() {
+        // Als de naam ingevuld is, enable de startknop
+        if (naamInput.value.trim() !== "") {
+            startBtn.disabled = false; // Maak de startknop actief
+        } else {
+            startBtn.disabled = true; // Zet de startknop weer uit als er geen naam is
+        }
+    });
+
+    // Als de gebruiker op Start klikt, wordt de naam opgeslagen en gaat het naar de quiz
+    startBtn.addEventListener("click", function() {
+        const naam = naamInput.value.trim();
+        if (naam !== "") {
+            localStorage.setItem("gebruikerNaam", naam); // Bewaar de naam in de local storage
+            window.location.href = "quiz.html"; // Verander naar de quiz pagina
+        }
+    });
+});
+
+// Quizpagina - Vragen en antwoorden tonen
 let currentQuestionIndex = 0;
 let score = 0;
 
+// Vragen en antwoorden
 const questions = [
     {
         question: "Welk land is dit?",
@@ -69,13 +95,4 @@ function checkAnswer(selectedOption) {
     }
 }
 
-// Functie om de quiz te resetten
-function resetQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    document.getElementById('score').textContent = 'Score: ' + score;
-    loadQuestion();
-}
-
-// Laad de eerste vraag
-loadQuestion();
+// Functie om de quiz te reset

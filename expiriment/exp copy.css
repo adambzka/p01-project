@@ -54,7 +54,7 @@ body {
 .start-btn {
   font-size: 2em;
   padding: 6px 60px;
-  border: 2px solid #000000;
+  border: 2px solid #222;
   background: none;
   cursor: pointer;
   border-radius: 50px;
@@ -69,7 +69,7 @@ body {
 .start-btn:disabled {
   background-color: #ddd;
   cursor: not-allowed;
-  color: #888888;
+  color: #888;
 }
 
 /* Hover effect */
@@ -138,7 +138,7 @@ body {
         border: none;
         padding: 15px;
         font-size: 16px;
-        border-radius: 50px;  /* Afronden van de hoeken */
+        border-radius: 5px;  /* Afronden van de hoeken */
         cursor: pointer;
         transition: background-color 0.3s ease;  /* Zachte overgang voor hover-effect */
     }
