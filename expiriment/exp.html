@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vlaggen Quiz</title>
+     <link rel="stylesheet" href="exp.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vlaggen Quiz</h1>
+    <div id="score">Score: 0</div>
+
+    <div id="question-container">
+        <h2 id="question">Welk land is dit?</h2>
+        <div class="button-container">
+            <button onclick="checkAnswer(0)">Optie 1</button>
+            <button onclick="checkAnswer(1)">Optie 2</button>
+            <button onclick="checkAnswer(2)">Optie 3</button>
+            <button onclick="checkAnswer(3)">Optie 4</button>
+        </div>
+    </div>
+
+    <script src="exp.js"></script>
+</body>
+</html>
