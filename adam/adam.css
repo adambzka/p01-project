@@ -32,7 +32,7 @@ body {
   font-weight: 600;
 }
 
-.knop {
+.btn {
   background-color: white;
   color: #222;
   font-weight: 500;
@@ -45,12 +45,16 @@ body {
   cursor: pointer;
   transition: all 0.3s;
 }
-.knop:hover {
+.btn:hover:not(:disabled) {
 background: #222;
 color: #fff;
 }
 
-#volgende {
+.btn:disabled {
+  cursor: no-drop;
+}
+
+#next {
   background: #001e4d ;
   color: #fff;
   font-weight: 500;
@@ -61,4 +65,12 @@ color: #fff;
   border-radius: 4px;
   cursor: pointer;
   display: none;
+}
+
+.incorrect{
+  background: #ff9393;
+}
+
+.correct{
+  background: #9aeabc;
 }
