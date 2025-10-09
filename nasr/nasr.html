@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -6,24 +7,26 @@
   <link rel="stylesheet" href="nasr.css">
 </head>
 <body>
-  <div class="container">
-    <button class="punten-btn">Punten</button>
-    <div class="center-items">
-      <input type="text" class="naam-input" placeholder="Vul je naam in">
-      <button class="start-btn">Start</button>
+  <div class="start">
+    <div class="start-inner">
+      <h1 class="start-title">Vul eerst je naam in om te beginnen</h1>
+      <input type="text" class="name-input" placeholder="Voer je naam in" />
+      <div class="start-button">start</div>
     </div>
   </div>
-  <div class="question-container">
-    <div class="question">Wat is 2 + 2?</div>
-  </div>
-  <div class="container-2">
-    <div class="div-2">
-      <button>Knop 1</button>
-      <button>Knop 2</button>
-      <button>Knop 3</button>
-      <button>Knop 4</button>
+<div class="container">
+  <h1>Quiz eten</h1>
+  <div class="quiz">
+    <h2 id="question">vraag </h2>
+    <div id="answers">
+      <button class="btn">A</button>
+      <button class="btn">B</button>
+      <button class="btn">C</button>
+      <button class="btn">D</button>
     </div>
+    <button id="next">volgende vraag</button>
   </div>
-  <script src="nasr.js"></script>
+</div>
+<script src="nasr.js"> </script>
 </body>
 </html>
