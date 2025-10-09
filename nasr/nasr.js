@@ -1,9 +1,8 @@
-
-const button = document.querySelector('.container');
-
-const elementToRemove = document.querySelector('.start-btn');
+const button = document.querySelector('.start-btn');
+const elementToRemove = document.querySelector('.container');
 
 button.addEventListener('click', () => {
-  
-  elementToRemove.remove();
+
+
+  elementToRemove.style.display = 'none';
 });
