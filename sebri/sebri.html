@@ -2,15 +2,30 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz Layout</title>
-  <link rel="stylesheet" href="sebri.css">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="exp.css">
+  <script defer src="exp.js"></script> <!-- Voeg hier je JavaScript-bestand toe -->
 </head>
 <body>
   <div class="container">
-    <button class="punten-btn">Punten</button>
-    <div class="center-items">
-      <input type="text" class="naam-input" placeholder="Vul je naam in">
-      <button class="start-btn">Start</button>
+    <!-- Score -->
+    <div id="score">Score: 0</div>
+    
+    <!-- Vraag container -->
+    <div id="question-container">
+      <!-- Vlagafbeelding -->
+      <img id="flag-image" src="" alt="Flag" />
+      
+      <!-- Vraagtekst -->
+      <div id="question"></div>
+
+      <!-- Antwoordknoppen -->
+      <div class="button-container">
+        <button onclick="checkAnswer(0)"></button>
+        <button onclick="checkAnswer(1)"></button>
+        <button onclick="checkAnswer(2)"></button>
+        <button onclick="checkAnswer(3)"></button>
+      </div>
     </div>
   </div>
 </body>
