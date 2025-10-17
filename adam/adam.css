@@ -6,11 +6,11 @@
 }
 
 body {
-  background-color: #c08d00;
+  background-color: #595959;
 }
 
 .container {
-  background-color: #fff;
+  background-color: #ffffffc3;
   width: 90%;
   height: 90%;
   max-width: 600px;
@@ -59,8 +59,8 @@ color: #fff;
 }
 
 #next {
-  background: #c08d00 ;
-  color: #fff;
+  background: #ffffffc3 ;
+  color: #000000;
   font-weight: 500;
   width: 150px;
   border: 0;
@@ -69,6 +69,12 @@ color: #fff;
   border-radius: 4px;
   cursor: pointer;
   display: none;
+}
+
+#next:hover {
+  background-color: #000000;
+  color: white;
+  transition-duration: 0.2s;
 }
 
 .incorrect{
