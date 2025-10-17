@@ -1,236 +1,134 @@
-body {
-  background: linear-gradient(135deg, #37003c 0%, #00ff87 100%);
-  min-height: 100vh;
+* {
   margin: 0;
-  font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
-  color: #37003c;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
-/* Premier League Logo */
-.prem-logo {
-  margin-bottom: 18px;
-  margin-top: 6px;
-  width: 80px;
-  height: 80px;
-  filter: drop-shadow(0 2px 12px #37003c80);
+body {
+  background-color: #c08d00;
 }
 
-.start {
-  background: #fff;
-  width: 90%;
-  max-width: 420px;
-  margin: 60px auto 0;
-  border-radius: 20px 20px 36px 36px;
-  padding: 36px 26px 32px 26px;
-  box-shadow: 0 0 18px #ffe60040, 0 0 0 4px #37003c;
-  border: 4px solid #37003c;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.start-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.start-title {
-  font-size: 2rem;
-  margin-bottom: 7px;
-  color: #37003c;
-  font-weight: 800;
-  text-shadow: 0 2px 10px #ffe60025;
-  text-align: center;
-  letter-spacing: 1.5px;
-}
-
-.start-sub {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #00ff87;
-  text-align: center;
-  font-weight: 600;
-}
-
-.input-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 28px;
-}
-
-.name-input {
-  width: 80%;
-  max-width: 320px;
-  padding: 14px 20px;
-  border-radius: 18px;
-  border: 2.5px solid #37003c;
-  font-size: 1.15rem;
-  outline: none;
-  background: #f7f7fa;
-  color: #37003c;
-  box-shadow: 0 2px 18px #37003c12;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-}
-
-.name-input:focus {
-  border-color: #00ff87;
-  background: #fff;
-  box-shadow: 0 0 9px #ffe60080;
-}
-
-.name-input::placeholder {
-  color: #b0b6d7;
-  font-size: 1rem;
-  opacity: 1;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-}
-
-.start-button {
-  background: linear-gradient(90deg, #37003c 0%, #00ff87 100%);
-  color: #fff;
-  border: none;
-  box-shadow: 0 0 12px #00ff8740;
-  border-radius: 18px;
-  padding: 13px 44px;
-  font-size: 1.12rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  margin-top: 6px;
-  transition: background 0.16s, color 0.16s, box-shadow 0.17s, transform 0.15s;
-  text-align: center;
-  border: 2px solid #00ff87;
-}
-
-.start-button:hover {
-  background: linear-gradient(90deg, #ffe600 0%, #e90052 100%);
-  color: #37003c;
-  box-shadow: 0 0 18px #ffe60090;
-  border: 2px solid #37003c;
-  transform: scale(1.04);
-}
-
-/* Quiz container styling */
 .container {
-  background: #fff;
+  background-color: #fff;
   width: 90%;
-  max-width: 420px;
-  margin: 60px auto 0;
-  border-radius: 20px 20px 36px 36px;
-  padding: 36px 26px 32px 26px;
-  box-shadow: 0 0 18px #ffe60040, 0 0 0 4px #37003c;
-  border: 4px solid #37003c;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.quiz-title {
-  font-size: 2rem;
-  letter-spacing: 2px;
-  color: #37003c;
-  font-weight: 800;
-  text-shadow: 0 2px 10px #ffe60025;
-  margin-bottom: 14px;
-  text-align: center;
-}
-
-.quiz {
-  width: 100%;
-}
-
-#question {
-  font-size: 1.3rem;
-  margin-bottom: 24px;
-  color: #37003c;
-  text-align: center;
-  font-weight: 700;
-  text-shadow: 0 1px 4px #ffe60030;
-}
-
-#answers {
+  height: 90%;
+  max-width: 600px;
+  max-height: 1000px;
+  margin: 250px auto 0;
+  border-radius: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  margin-bottom: 20px;
+  display: none;
+}
+
+.container h1 {
+  font-size: 25px;
+  color: #000000;
+  font-weight: 600;
+  padding-bottom: 40px;
+}
+
+.quiz h2 {
+  font-size: 18px;
+  color: #000000;
+  font-weight: 600;
 }
 
 .btn {
-  background: linear-gradient(90deg, #00ff87 0%, #37003c 100%);
-  color: #37003c;
-  border: 2.2px solid #37003c;
-  box-shadow: 0 2px 10px #00ff8720;
-  border-radius: 16px;
-  padding: 13px 0;
-  font-size: 1.1rem;
-  font-family: inherit;
+  background-color: white;
+  color: #222;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #222;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.18s, border 0.15s, transform 0.13s, color 0.13s;
-  font-weight: 700;
-  letter-spacing: 1px;
+  transition: all 0.3s;
 }
-
 .btn:hover:not(:disabled) {
-  background: linear-gradient(90deg, #ffe600 0%, #e90052 100%);
-  border-color: #00ff87;
-  color: #37003c;
-  transform: scale(1.04);
+background: #222;
+color: #fff;
 }
 
-.btn.correct {
-  background: linear-gradient(90deg, #00ff87 0%, #37003c 100%);
-  border-color: #00ff87;
-  color: #37003c;
-}
-
-.btn.incorrect {
-  background: linear-gradient(90deg, #e90052 0%, #ffe600 100%);
-  border-color: #e90052;
-  color: #37003c;
+.btn:disabled {
+  cursor: no-drop;
 }
 
 #next {
-  margin: 30px auto 0 auto;
-  display: none;
-  background: linear-gradient(90deg, #37003c 0%, #00ff87 100%);
+  background: #c08d00 ;
   color: #fff;
-  border: none;
-  box-shadow: 0 0 12px #00ff8740;
-  border-radius: 18px;
-  padding: 14px 48px;
-  font-size: 1.08rem;
-  font-weight: bold;
-  letter-spacing: 1.5px;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.16s, color 0.16s;
-  border: 2px solid #00ff87;
+  display: none;
 }
 
-#next:hover {
-  background: linear-gradient(90deg, #ffe600 0%, #e90052 100%);
-  color: #37003c;
-  border: 2px solid #37003c;
+.incorrect{
+  background: #ff9393;
 }
 
-@media (max-width: 600px) {
-  .container, .start {
-    padding: 18px 8px 20px 8px;
-    margin-top: 26px;
-  }
-  .start-title, .quiz-title {
-    font-size: 1.2rem;
-  }
-  #question {
-    font-size: 1rem;
-  }
+.correct{
+  background: #9aeabc;
+}
+
+.start {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none; /* GEEN grote lichte achtergrond meer */
+}
+
+.start-inner {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px 0 rgba(31,38,135,0.12);
+  padding: 36px 24px 28px 24px;
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-button{
+  background-color: white;
+  color: #222;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #222;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.start-title {
+  font-size: 1.4rem;
+  color: #1d7431;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.name-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #222;
+  border-radius: 4px;
+  font-size: 16px;
 }
