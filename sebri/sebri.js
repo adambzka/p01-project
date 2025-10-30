@@ -45,7 +45,7 @@ const questions = [
         vraag: "Welke vlag is dit?",
         antwoorden: ["Turkije", "Egypte", "Marokko", "Tunesië"],
         juist: 0,
-        img: "images/TurkeyFlag.webp"
+        img: "images/TurkeyFlag.png"
     },
     {
         vraag: "Welke vlag is dit?",
@@ -120,3 +120,96 @@ const questions = [
         img: "images/USAFlag.png"
     }
 ];
+
+let huidigeVraag = 0;
+let score = 0;
+
+const vraagEl = document.getElementById("question");
+const antwoordenEl = document.getElementById("answers");
+const volgendeBtn = document.getElementById("nextBtn");
+const scoreEl = document.getElementById("score");
+const feedbackEl = document.getElementById("feedback");
+const finalEl = document.getElementById("final");
+const imgBox = document.getElementById("imgbox");
+const vraagNummerEl = document.getElementById("vraagnummer");
+
+// ENTER = Volgende vraag
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && volgendeBtn.style.display !== "none") {
+        volgendeBtn.click();
+    }
+});
+
+function toonVraag() {
+    // Vraagnummer tonen
+    vraagNummerEl.textContent = `Vraag ${huidigeVraag + 1} van ${questions.length}`;
+    // Afbeelding boven vraag
+    imgBox.innerHTML = "";
+    const imgUrl = questions[huidigeVraag].img;
+    if (imgUrl) {
+        const img = document.createElement("img");
+        img.src = imgUrl;
+        img.alt = "Vraag afbeelding";
+        imgBox.appendChild(img);
+    }
+    vraagEl.textContent = questions[huidigeVraag].vraag;
+    antwoordenEl.innerHTML = "";
+    feedbackEl.textContent = "";
+    volgendeBtn.style.display = "none";
+    finalEl.textContent = "";
+
+    questions[huidigeVraag].antwoorden.forEach((antwoord, idx) => {
+        const btn = document.createElement("button");
+        btn.textContent = antwoord;
+        btn.onclick = () => selecteerAntwoord(idx, btn);
+        antwoordenEl.appendChild(btn);
+    });
+}
+
+function selecteerAntwoord(idx, button) {
+    Array.from(antwoordenEl.children).forEach((btn, i) => {
+        btn.disabled = true;
+        btn.classList.remove("selected", "fout");
+    });
+    const juistAntwoord = questions[huidigeVraag].juist;
+    if (idx === juistAntwoord) {
+        button.classList.add("selected");
+        score += 5;
+        feedbackEl.textContent = "Goed gedaan! +5 punten";
+        feedbackEl.style.color = "#219a52";
+    } else {
+        button.classList.add("fout");
+        score -= 5;
+        let goedAntwoord = questions[huidigeVraag].antwoorden[juistAntwoord];
+        feedbackEl.textContent = `Fout. Het juiste antwoord is: ${goedAntwoord}`;
+        feedbackEl.style.color = "#b94a48";
+    }
+    scoreEl.textContent = `Score: ${score}`;
+    volgendeBtn.style.display = "inline-block";
+    if (huidigeVraag === questions.length - 1) {
+        volgendeBtn.textContent = "Resultaat";
+    } else {
+        volgendeBtn.textContent = "Volgende";
+    }
+}
+
+volgendeBtn.onclick = () => {
+    huidigeVraag++;
+    if (huidigeVraag < questions.length) {
+        toonVraag();
+    } else {
+        toonResultaat();
+    }
+};
+
+function toonResultaat() {
+    vraagNummerEl.textContent = "";
+    vraagEl.textContent = "Quiz afgelopen!";
+    imgBox.innerHTML = "";
+    antwoordenEl.innerHTML = "";
+    volgendeBtn.style.display = "none";
+    feedbackEl.textContent = "";
+    finalEl.textContent = `Jouw eindscore is: ${score} van ${questions.length * 5} punten.`;
+}
+
+toonVraag();
