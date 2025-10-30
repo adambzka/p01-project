@@ -103,9 +103,9 @@ const questions = [
     },
     {
         vraag: "Welke vlag is dit?",
-        antwoorden: ["Griekenland", "Cyprus", "Albanië", "Turkije"],
+        antwoorden: ["Turkije", "Cyprus", "Albanië", "griekenland"],
         juist: 0,
-        img: "images/GreeceFlag.png"
+        img: "images/TurkeyFlag.png"
     },
     {
         vraag: "Welke vlag is dit?",
@@ -132,6 +132,7 @@ const feedbackEl = document.getElementById("feedback");
 const finalEl = document.getElementById("final");
 const imgBox = document.getElementById("imgbox");
 const vraagNummerEl = document.getElementById("vraagnummer");
+const solanaForm = document.getElementById("solanaForm");
 
 // ENTER = Volgende vraag
 document.addEventListener("keydown", function(e) {
@@ -141,9 +142,7 @@ document.addEventListener("keydown", function(e) {
 });
 
 function toonVraag() {
-    // Vraagnummer tonen
     vraagNummerEl.textContent = `Vraag ${huidigeVraag + 1} van ${questions.length}`;
-    // Afbeelding boven vraag
     imgBox.innerHTML = "";
     const imgUrl = questions[huidigeVraag].img;
     if (imgUrl) {
@@ -157,6 +156,7 @@ function toonVraag() {
     feedbackEl.textContent = "";
     volgendeBtn.style.display = "none";
     finalEl.textContent = "";
+    solanaForm.style.display = "none";
 
     questions[huidigeVraag].antwoorden.forEach((antwoord, idx) => {
         const btn = document.createElement("button");
@@ -210,6 +210,22 @@ function toonResultaat() {
     volgendeBtn.style.display = "none";
     feedbackEl.textContent = "";
     finalEl.textContent = `Jouw eindscore is: ${score} van ${questions.length * 5} punten.`;
+    if (score >= 5) {
+        solanaForm.style.display = "block";
+    } else {
+        solanaForm.style.display = "none";
+    }
 }
+
+solanaForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const container = document.querySelector('.quiz-container');
+    container.innerHTML = `
+        <div id="geluktAnimatie">
+            <div class="gelukt-check">&#10004;</div>
+            <div class="gelukt-text">Gelukt! <br>Je Solana adres is ontvangen.</div>
+        </div>
+    `;
+});
 
 toonVraag();
