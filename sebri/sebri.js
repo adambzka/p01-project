@@ -1,114 +1,103 @@
-// script.js
-
-// Wacht tot de pagina volledig is geladen
-document.addEventListener("DOMContentLoaded", function() {
-    const naamInput = document.getElementById("naam");
-    const startBtn = document.getElementById("start-btn");
-
-    // Eventlistener voor het invullen van de naam
-    naamInput.addEventListener("input", function() {
-        // Als de naam ingevuld is, enable de startknop
-        if (naamInput.value.trim() !== "") {
-            startBtn.disabled = false; // Maak de startknop actief
-        } else {
-            startBtn.disabled = true; // Zet de startknop weer uit als er geen naam is
-        }
-    });
-
-    // Als de gebruiker op Start klikt, wordt de naam opgeslagen en gaat het naar de quiz
-    startBtn.addEventListener("click", function() {
-        const naam = naamInput.value.trim();
-        if (naam !== "") {
-            localStorage.setItem("gebruikerNaam", naam); // Bewaar de naam in de local storage
-            window.location.href = "sebri.html"; // Verander naar de quiz pagina (maak deze pagina als je dat nog niet hebt)
-        }
-    });
-});
-
-// Variabelen voor de vragen en antwoorden
-let currentQuestionIndex = 0;
-let score = 0;
-
+// Vragen, antwoorden en afbeelding-url's
 const questions = [
     {
-        question: "Welk land is dit?",
-        options: ["Frankrijk", "Spanje", "Italië", "Duitsland"],
-        correctAnswer: 0, // Frankrijk
-        flagImage: "images/FranceFlag.png" // Voeg hier je PNG-afbeelding toe
+        vraag: "Welke vlag is dit?",
+        antwoorden: ["Russia", "France", "Duitsland", "China"],
+        juist: 1,
+        img: "images/FranceFlag.png"
     },
     {
-        question: "Welk land is dit?",
-        options: ["Verenigd Koninkrijk", "Canada", "Australië", "Ierland"],
-        correctAnswer: 2, // Australië
-        flagImage: "images/AustraliaFlag.png" // Voeg hier je PNG-afbeelding toe
+        vraag: "Welke vlag is dit??",
+        antwoorden: ["America", "Zwitserland", "Australia", "Engeland"],
+        juist: 2,
+        img: "images/AustraliaFlag.png"
     },
     {
-        question: "Welk land is dit?",
-        options: ["Nederland", "België", "Luxemburg", "Duitsland"],
-        correctAnswer: 0, // Nederland
-        flagImage: "images/NetherlandsFlag.png" // Voeg hier je PNG-afbeelding toe
+        vraag: "Welke vlag is dit?",
+        antwoorden: ["Nederland", "belgie", "luxemburg", "frankrrijk"],
+        juist: 0,
+        img: "images/NetherlandsFlag.png"
     },
-    {
-        question: "Welk land is dit?",
-        options: ["Portugal", "Griekenland", "Brazilië", "Argentinië"],
-        correctAnswer: 3, // Argentinië
-        flagImage: "images/ArgentiniaFlag.png" // Voeg hier je PNG-afbeelding toe
-    }
+
 ];
 
-// Functie om de vraag en opties te tonen
-function loadQuestion() {
-    const questionElement = document.getElementById('question');
-    const buttons = document.querySelectorAll('.button-container button');
-    const flagImageElement = document.getElementById('flag-image');
+let huidigeVraag = 0;
+let score = 0;
 
-    // Haal de vraag en opties op voor de huidige vraag
-    const currentQuestion = questions[currentQuestionIndex];
-    
-    // Stel de vraag in
-    questionElement.textContent = currentQuestion.question;
+const vraagEl = document.getElementById("question");
+const antwoordenEl = document.getElementById("answers");
+const volgendeBtn = document.getElementById("nextBtn");
+const scoreEl = document.getElementById("score");
+const feedbackEl = document.getElementById("feedback");
+const finalEl = document.getElementById("final");
+const imgBox = document.getElementById("imgbox");
 
-    // Stel de opties in
-    currentQuestion.options.forEach((option, index) => {
-        buttons[index].textContent = option;
+function toonVraag() {
+    // Afbeelding boven vraag
+    imgBox.innerHTML = "";
+    const imgUrl = questions[huidigeVraag].img;
+    if (imgUrl) {
+        const img = document.createElement("img");
+        img.src = imgUrl;
+        img.alt = "Vraag afbeelding";
+        imgBox.appendChild(img);
+    }
+    vraagEl.textContent = questions[huidigeVraag].vraag;
+    antwoordenEl.innerHTML = "";
+    feedbackEl.textContent = "";
+    volgendeBtn.style.display = "none";
+    finalEl.textContent = "";
+
+    questions[huidigeVraag].antwoorden.forEach((antwoord, idx) => {
+        const btn = document.createElement("button");
+        btn.textContent = antwoord;
+        btn.onclick = () => selecteerAntwoord(idx, btn);
+        antwoordenEl.appendChild(btn);
     });
-
-    // Stel de vlag in
-    flagImageElement.src = currentQuestion.flagImage;
 }
 
-// Functie om het antwoord te controleren
-function checkAnswer(selectedOption) {
-    const currentQuestion = questions[currentQuestionIndex];
+function selecteerAntwoord(idx, button) {
+    // Disable alle knoppen
+    Array.from(antwoordenEl.children).forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("selected");
+    });
+    button.classList.add("selected");
 
-    // Controleer of het geselecteerde antwoord juist is
-    if (selectedOption === currentQuestion.correctAnswer) {
-        score++;
-        alert('Correct!');
+    const juistAntwoord = questions[huidigeVraag].juist;
+    if (idx === juistAntwoord) {
+        score += 5;
+        feedbackEl.textContent = "Goed gedaan! +5 punten";
+        feedbackEl.style.color = "#219a52";
     } else {
-        alert('Fout!');
+        feedbackEl.textContent = "Helaas, dat is fout.";
+        feedbackEl.style.color = "#b94a48";
     }
-
-    // Update de score
-    document.getElementById('score').textContent = 'Score: ' + score;
-
-    // Volgende vraag of einde van de quiz
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        loadQuestion();
+    scoreEl.textContent = `Score: ${score}`;
+    volgendeBtn.style.display = "inline-block";
+    if (huidigeVraag === questions.length - 1) {
+        volgendeBtn.textContent = "Resultaat";
     } else {
-        alert('De quiz is afgelopen! Je score is ' + score);
-        resetQuiz();
+        volgendeBtn.textContent = "Volgende";
     }
 }
 
-// Functie om de quiz te resetten
-function resetQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    document.getElementById('score').textContent = 'Score: ' + score;
-    loadQuestion();
+volgendeBtn.onclick = () => {
+    huidigeVraag++;
+    if (huidigeVraag < questions.length) {
+        toonVraag();
+    } else {
+        toonResultaat();
+    }
+};
+
+function toonResultaat() {
+    vraagEl.textContent = "Quiz afgelopen!";
+    imgBox.innerHTML = "";
+    antwoordenEl.innerHTML = "";
+    volgendeBtn.style.display = "none";
+    feedbackEl.textContent = "";
+    finalEl.textContent = `Jouw eindscore is: ${score} van ${questions.length * 5} punten.`;
 }
 
-// Laad de eerste vraag
-loadQuestion();
+toonVraag();

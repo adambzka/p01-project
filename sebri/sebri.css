@@ -1,82 +1,79 @@
-/* Algemene body stijl */
-body {
-  background-color: #f4f4f9;  /* Lichte achtergrondkleur */
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-/* Hoofdkader van de quiz */
-#question-container {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+.quiz-container {
+  width: 400px;
+  margin: 50px auto;
+  background: #e3e3ff;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px #7c7cff;
+  padding: 30px 20px;
   text-align: center;
-  width: 300px;
-  border: 1px solid #ddd;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  font-family: Arial, sans-serif;
+  border: 3px solid #2255aa;
 }
 
-/* Vlagafbeelding stijl */
-#flag-image {
-  width: 120px;  /* Pas de breedte van de vlag aan */
-  height: auto;
-  margin-bottom: 20px;
+#imgbox img {
+  max-width: 220px;
+  max-height: 140px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  border: 2px solid #2255aa;
+  background: #fff;
 }
 
-/* De vraag tekst */
-#question {
-  font-size: 20px;
+.score-box {
+  margin-top: 20px;
+  padding: 15px 10px;
+  background: #fff;
+  border-radius: 16px;
+  border: 2px solid #7c7cff;
+}
+
+#feedback {
+  font-size: 1.2em;
+  margin: 10px 0;
   color: #333;
+}
+
+#final {
+  font-size: 1.3em;
   font-weight: bold;
+  color: #2255aa;
 }
-
-/* Knoppen container */
-.button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Knoppen stijl */
-button {
-  background-color: #007bff;
-  color: white;
+#answers button {
+  display: block;
+  margin: 10px auto;
+  padding: 12px 22px;
+  background: #2255aa;
+  color: #fff;
   border: none;
-  padding: 15px;
-  font-size: 16px;
   border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;  /* Zorg dat knoppen de breedte van de container vullen */
+  width: 85%;
+  font-size: 1.08em;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #b1c9f7;
 }
-
-/* Hover effect voor knoppen */
-button:hover {
-  background-color: #0056b3;
+#answers button:disabled {
+  background: #aabbe8;
+  cursor: not-allowed;
 }
-
-button:active {
-  background-color: #003d80;
+#answers button.selected {
+  border: 3px solid #00cc44;
+  background: #99eecc;
+  color: #2255aa;
+  box-shadow: 0 2px 12px #99eecc;
 }
-
-/* Score */
-#score {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);  /* Centreer score bovenaan */
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
+#nextBtn {
+  background: #2255aa;
+  color: #fff;
+  border: none;
+  border-radius: 28px;
+  padding: 9px 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  box-shadow: 0 2px 8px #b1c9f7;
+  transition: background 0.2s;
+}
+#nextBtn:hover {
+  background: #0071e3;
 }
