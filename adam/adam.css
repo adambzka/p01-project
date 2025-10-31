@@ -11,17 +11,23 @@ body {
 
 .container {
   background-color: #ffffffc3;
-  width: 90%;
+  width: 80%;
   height: 90%;
-  max-width: 600px;
-  max-height: 1000px;
+  max-width: 500px;
+  max-height: 2000px;
   margin: 250px auto 0;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 30px;
   display: flex;
   flex-direction: column;
   display: none;
+  border: 2px solid black;
 }
+
+#score {
+  text-align: right;
+}
+
 
 .container h1 {
   font-size: 25px;
@@ -41,7 +47,7 @@ body {
   color: #222;
   font-weight: 500;
   width: 100%;
-  border: 1px solid #222;
+  border: 2px solid #222;
   padding: 10px;
   margin: 10px 0;
   text-align: left;
@@ -52,6 +58,7 @@ body {
 .btn:hover:not(:disabled) {
 background: #222;
 color: #fff;
+border: 2px solid white;
 }
 
 .btn:disabled {
@@ -69,20 +76,27 @@ color: #fff;
   border-radius: 4px;
   cursor: pointer;
   display: none;
+  border: 2px solid black;
 }
 
 #next:hover {
   background-color: #000000;
   color: white;
   transition-duration: 0.2s;
+  border: 2px solid #fff;
 }
 
 .incorrect{
-  background: #ff9393;
+  background: #ff6767;
 }
 
 .correct{
-  background: #9aeabc;
+  background: #00ff6e;
+}
+
+.start-button:hover {
+  color: #ffffff;
+  background-color: #595959;
 }
 
 .start {
@@ -91,7 +105,8 @@ color: #fff;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: none; /* GEEN grote lichte achtergrond meer */
+  background: none; 
+  border: 2px solid black;
 }
 
 .start-inner {
@@ -105,6 +120,7 @@ color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid black;
 }
 
 .start-button{
@@ -112,18 +128,19 @@ color: #fff;
   color: #222;
   font-weight: 500;
   width: 100%;
-  border: 1px solid #222;
+  border: 2px solid #222;
   padding: 10px;
   margin: 10px 0;
   text-align: left;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s;
+  text-align: center;
 }
 
 .start-title {
   font-size: 1.4rem;
-  color: #1d7431;
+  color: #000000;
   margin-bottom: 24px;
   text-align: center;
   font-weight: 600;
@@ -131,10 +148,11 @@ color: #fff;
 }
 
 .name-input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #222;
+  margin-bottom: 20px;
+  border: 2px solid #222;
   border-radius: 4px;
   font-size: 16px;
+  text-align: center;
 }
