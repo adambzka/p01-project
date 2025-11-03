@@ -199,7 +199,7 @@ const vraagElement = document.getElementById("question");
   let currentQuestionIndex = 0;
   let score = 0;
   
-  // --- Start de quiz ---
+ 
   function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
@@ -207,7 +207,7 @@ const vraagElement = document.getElementById("question");
     showQuestion();
   }
   
-  // --- Laat een vraag zien ---
+  
   function showQuestion() {
     resetState();
     let currentQuestion = vragen[currentQuestionIndex];
@@ -226,28 +226,28 @@ const vraagElement = document.getElementById("question");
     });
   }
   
-  // --- Reset de antwoorden ---
+  
   function resetState() {
     volgendeKnop.style.display = "none";
     while (antwoordKnoppen.firstChild) {
       antwoordKnoppen.removeChild(antwoordKnoppen.firstChild);
     }
   }
-  
-  // --- Klik op een antwoord ---
+
+
   function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
   
     if (isCorrect) {
       selectedBtn.classList.add("correct");
-      score += 1; // ✅ goed = +1
+      score += 1; 
     } else {
       selectedBtn.classList.add("incorrect");
       if (score > 0) score -= 1;
     }
   
-    // Markeer correcte antwoord
+   
     Array.from(antwoordKnoppen.children).forEach(button => {
       if (button.dataset.correct === "true") {
         button.classList.add("correct");
@@ -258,18 +258,18 @@ const vraagElement = document.getElementById("question");
     volgendeKnop.style.display = "block";
   }
   
-  // --- Toon eindscore ---
+
   function showScore() {
     resetState();
     
-    // Minimum score kan negatief zijn — laten we dat tonen
+   
     vraagElement.innerHTML = `Je hebt ${score} punt${score === 1 ? '' : 'en'} gehaald uit ${vragen.length} vragen.`;
   
     volgendeKnop.innerHTML = "Speel opnieuw";
     volgendeKnop.style.display = "block";
   }
   
-  // --- Ga naar volgende vraag ---
+ 
   function handleVolgendeKnop() {
     currentQuestionIndex++;
     if (currentQuestionIndex < vragen.length) {
@@ -279,7 +279,7 @@ const vraagElement = document.getElementById("question");
     }
   }
   
-  // --- Volgende-knop event ---
+  
   volgendeKnop.addEventListener("click", () => {
     if (currentQuestionIndex < vragen.length) {
       handleVolgendeKnop();
