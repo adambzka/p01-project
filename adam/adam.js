@@ -263,8 +263,11 @@ const vraagElement = document.getElementById("question");
     resetState();
     
    
-    vraagElement.innerHTML = `Je hebt ${score} punt${score === 1 ? '' : 'en'} gehaald uit ${vragen.length} vragen.`;
-  
+    if (score < 10) {
+  vraagElement.innerHTML = `Je bent gezakt. Je hebt ${score} punt${score === 1 ? '' : 'en'} gehaald uit ${vragen.length} vragen.`;
+} else {
+  vraagElement.innerHTML = `Je bent geslaagd. Je hebt ${score} punt${score === 1 ? '' : 'en'} gehaald uit ${vragen.length} vragen.`;
+}
     volgendeKnop.innerHTML = "Speel opnieuw";
     volgendeKnop.style.display = "block";
   }
