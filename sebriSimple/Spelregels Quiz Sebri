@@ -1,0 +1,7 @@
+MAX punten = 100
+Vraag goed = +5 punten 
+Vraag fout = -5 punten
+
+Client moet raden welke optie voor vlag juist is. 
+
+Einde van Quiz kan client solana krijgen van hoeveel hij heeft in punten heeft gescoord maar in  €
