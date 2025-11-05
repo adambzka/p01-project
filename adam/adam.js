@@ -1,3 +1,4 @@
+/* array met vragen en antwoorden */
 const vragen = [
   {
     question: "In welk jaar eindigde de Tweede Wereldoorlog?",
@@ -191,15 +192,16 @@ const vragen = [
     ]
   },
 ];
-
+/* linkt met html en maakt variabelen */
 const vraagElement = document.getElementById("question");
   const antwoordKnoppen = document.getElementById("answers");
   const volgendeKnop = document.getElementById("next");
   
+  
   let currentQuestionIndex = 0;
   let score = 0;
   
- 
+ /*zet index en score op 0, veranderd html van volgende knop en roept functie na*/
   function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
@@ -207,18 +209,19 @@ const vraagElement = document.getElementById("question");
     showQuestion();
   }
   
-  
+  /*roept functie na, linkt array en veranderd vraagelement naar huidige vraag*/
   function showQuestion() {
     resetState();
     let currentQuestion = vragen[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     vraagElement.innerHTML = questionNo + ". " + currentQuestion.question;
   
-    currentQuestion.answers.forEach(answer => {
-      const button = document.createElement("button");
-      button.innerHTML = answer.text;
-      button.classList.add("btn");
-      antwoordKnoppen.appendChild(button);
+    /**/
+    currentQuestion.answers.forEach(answer => {   /*pakt antwoorden van de vraag*/
+      const button = document.createElement("button"); /*maakt nieuw element aan genaamd button*/
+      button.innerHTML = answer.text; /*veranderd de html naar het antwoord*/
+      button.classList.add("btn"); /*geeft de button een class voor css etc*/
+      antwoordKnoppen.appendChild(button); /*zet de knop onder de antwoordknoppen*/
       if (answer.correct) {
         button.dataset.correct = answer.correct;
       }
@@ -226,30 +229,36 @@ const vraagElement = document.getElementById("question");
     });
   }
   
-  
+  /*reset de elementen*/
   function resetState() {
-    volgendeKnop.style.display = "none";
-    while (antwoordKnoppen.firstChild) {
+    volgendeKnop.style.display = "none";   /*zet de volgendeknop weer terug naar invisable*/
+    while (antwoordKnoppen.firstChild) {   /*verwijderd de knoppen*/
       antwoordKnoppen.removeChild(antwoordKnoppen.firstChild);
     }
   }
 
 
+const scoreh3 = document.querySelector("#score-h3")
+scoreh3.textContent = `Score: ${score}`;
+
+
+/*verwijst naar clickevent*/
   function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
+    const scoreh3 = document.querySelector("#score-h3")
   
     if (isCorrect) {
-      selectedBtn.classList.add("correct");
+      selectedBtn.classList.add("correct"); /*geeft klasse correct en zet score omhoog*/
       score += 1; 
     } else {
       selectedBtn.classList.add("incorrect");
       if (score > 0) score -= 1;
     }
   
-   
-    Array.from(antwoordKnoppen.children).forEach(button => {
-      if (button.dataset.correct === "true") {
+    scoreh3.textContent = `Score: ${score}`;
+    Array.from(antwoordKnoppen.children).forEach(button => { /*verrwijst naar de buttons*/
+      if (button.dataset.correct === "true") { /*als correct voeg klasse correct en disable click*/
         button.classList.add("correct");
       }
       button.disabled = true;
@@ -273,12 +282,12 @@ const vraagElement = document.getElementById("question");
   }
   
  
-  function handleVolgendeKnop() {
+  function handleVolgendeKnop() { /*controleert of er nog vragen zo niet roept die uitslagenfunctie */
     currentQuestionIndex++;
     if (currentQuestionIndex < vragen.length) {
       showQuestion();
     } else {
-      showScore();
+      showScore(); 
     }
   }
   
@@ -296,8 +305,12 @@ const vraagElement = document.getElementById("question");
   const button = document.querySelector('.start-button');
   const elementToRemove = document.querySelector('.start');
   const container = document.querySelector('.container');
+  const naam = document.querySelector('.name-input')
   
-  button.addEventListener('click', () => {
+  
+  button.addEventListener('click', () => { /*als je op de start button klikt verwijderd die start en krijg je de quiz container te zien */
+    const name = naam.value.trim()
+    if (name === '') return
     elementToRemove.style.display = 'none';
     container.style.display = 'flex'; 
     startQuiz();
