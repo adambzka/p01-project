@@ -290,13 +290,11 @@ function showScore() {
   resetState();
 
   if (score < 10) {
-    vraagElement.innerHTML = `Je bent gezakt. Je hebt ${score} punt${
-      score === 1 ? "" : "en"
-    } gehaald uit ${vragen.length} vragen.`;
+    vraagElement.innerHTML = `Je bent gezakt. Je hebt ${score} punt${score === 1 ? "" : "en"
+      } gehaald uit ${vragen.length} vragen.`;
   } else {
-    vraagElement.innerHTML = `Je bent geslaagd. Je hebt ${score} punt${
-      score === 1 ? "" : "en"
-    } gehaald uit ${vragen.length} vragen.`;
+    vraagElement.innerHTML = `Je bent geslaagd. Je hebt ${score} punt${score === 1 ? "" : "en"
+      } gehaald uit ${vragen.length} vragen.`;
   }
   volgendeKnop.innerHTML = "Speel opnieuw";
   volgendeKnop.style.display = "block";
@@ -321,6 +319,13 @@ volgendeKnop.addEventListener("click", () => {
   }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const naamDisplay = document.querySelector('.naam');
+  const naamInput = document.querySelector('.name-input');
+  naamInput.addEventListener('input', function () {
+    naamDisplay.textContent = naamInput.value;
+  });
+});
 startQuiz();
 
 const button = document.querySelector(".start-button");

@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #c08d00;
+  background-color: green;
 }
 
 .container {
@@ -28,6 +28,11 @@ body {
   color: #000000;
   font-weight: 600;
   padding-bottom: 40px;
+}
+
+#score-h3 {
+  text-align: right;
+  display: block;
 }
 
 .quiz h2 {
