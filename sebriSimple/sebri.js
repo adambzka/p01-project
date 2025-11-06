@@ -215,3 +215,11 @@ playAgainBtn.addEventListener('click', () => {
     quizContainer.style.display = "block";
     toonVraag();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const naamDisplay = document.querySelector('.naam');
+    const naamInput = document.querySelector('#nameInput');
+    naamInput.addEventListener('input', function() {
+      naamDisplay.textContent = naamInput.value;
+    });
+  });
